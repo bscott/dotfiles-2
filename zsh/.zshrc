@@ -5,7 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="nebirhos"
 
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
@@ -18,8 +19,9 @@ source "$HOME/.dotfiles/z/z.sh"
 
 # Global aliases
 alias ctags="`brew --prefix`/bin/ctags"
-alias -g gits='git status'
-alias -g github='git hub'
+alias ga="git add ."
+alias gs="git status"
+alias gc="git commit"
 alias -g tag='ctags -R .'
 alias -g mux='tmuxinator'
 alias -g tks='tmux kill-session'
@@ -38,7 +40,7 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
 export GOPATH=$HOME/code/gocode
-export GOCODE=$GOPATH/src/github.com/codegangsta
+export GOCODE=$GOPATH/src/
 export PATH=$PATH:$GOPATH/bin
 
 export EDITOR='vim'
@@ -57,3 +59,9 @@ export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 # SlimerJS
 export SLIMERJSLAUNCHER="/Applications/Firefox.app/Contents/MacOS/firefox"
+
+# Customize to your needs...
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/bscott/.rvm/gems/ruby-1.9.3-p194/bin:/Users/bscott/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/bscott/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/bscott/.rvm/bin:/usr/local/sbin:/Users/bscott/.rvm/bin
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export EDITOR=vim

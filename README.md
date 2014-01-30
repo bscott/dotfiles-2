@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-Jeremy's dotfiles
+bscott's dotfiles
