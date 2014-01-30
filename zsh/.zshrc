@@ -9,13 +9,13 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="nebirhos"
 
 # chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
+#source /usr/local/opt/chruby/share/chruby/chruby.sh
 
 # default ruby
-chruby 2.0
+# chruby 2.0
 
 # Z
-source "$HOME/.dotfiles/z/z.sh"
+#source "$HOME/.dotfiles/z/z.sh"
 
 # Global aliases
 alias ctags="`brew --prefix`/bin/ctags"
@@ -27,41 +27,48 @@ alias -g mux='tmuxinator'
 alias -g tks='tmux kill-session'
 alias -g rmswp='find . -name ".*.sw*" | xargs rm -f'
 
-# Rails aliases
-alias -g migrate='rake db:migrate db:test:prepare'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(brew screen osx vagrant rvm knife git git-extras knife node npm osx textmate tmux golang sublime rails ruby)
 
 source $ZSH/oh-my-zsh.sh
+
 # Disable auto correct
 unsetopt correct_all
+unsetopt correct
+unsetopt auto_name_dirs
 
 export GOPATH=$HOME/code/gocode
 export GOCODE=$GOPATH/src/
-export PATH=$PATH:$GOPATH/bin
+#export PATH=$PATH:$GOPATH/bin
 
 export EDITOR='vim'
 export DISABLE_AUTO_TITLE=true
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Change this value to set how frequently ZSH updates¬
+export UPDATE_ZSH_DAYS=13
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
-# NPM path
-export PATH="/usr/local/share/npm/bin:$PATH"
+PATH=$PATH:$HOME/.rvm/bin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$GOPATH/bin:$HOME/.rvm/bin
+
 
 # Postgres
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+# export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 # SlimerJS
-export SLIMERJSLAUNCHER="/Applications/Firefox.app/Contents/MacOS/firefox"
+# export SLIMERJSLAUNCHER="/Applications/Firefox.app/Contents/MacOS/firefox"
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/bscott/.rvm/gems/ruby-1.9.3-p194/bin:/Users/bscott/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/bscott/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/bscott/.rvm/bin:/usr/local/sbin:/Users/bscott/.rvm/bin
+# export PATH=$PATH/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/bscott/.rvm/gems/ruby-1.9.3-p194/bin:/Users/bscott/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/bscott/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/bscott/.rvm/bin:/usr/local/sbin:/Users/bscott/.rvm/bin
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export EDITOR=vim
+source ~/.rvm/scripts/rvm
